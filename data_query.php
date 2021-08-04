@@ -4,10 +4,10 @@ class DataQuery extends Database
 {
     public $data_array = array();
 
-    function select($database, $table, $rows)
+    function select($database, $table, $rows,$conditions='')
     {
 
-        $query = "SELECT $rows FROM $database.$table ";
+        $query = "SELECT $rows FROM $database.$table $conditions ";
         $result = mysqli_query($this->connection, $query);
 
 
