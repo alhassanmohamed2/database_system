@@ -14,7 +14,7 @@ class DataQuery extends Database
         while ($data_array = mysqli_fetch_array($result, MYSQLI_NUM)) {
             array_push($this->data_array, $data_array);
         }
-
+        mysqli_free_result($result);
         return $this->data_array;
     }
 
