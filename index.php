@@ -13,9 +13,9 @@ include 'data_query.php'; ?>
 
 <body>
     <?php
-        $data_q = new DataQuery();
-        
-        $database_q = new DatabaseQuery();
+    $data_q = new DataQuery();
+
+    $database_q = new DatabaseQuery();
     ?>
 </body>
 
