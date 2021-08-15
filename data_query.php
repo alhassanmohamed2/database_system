@@ -4,10 +4,10 @@ class DataQuery extends Database
 {
     public $data_array = array();
 
-    function select($database, $table, $rows)
+    function select($database, $table, $rows, $conditions='')
     {
 
-        $query = "SELECT $rows FROM $database.$table ";
+        $query = "SELECT $rows FROM $database.$table $conditions ";
         $result = mysqli_query($this->connection, $query);
 
 
@@ -42,15 +42,15 @@ class DataQuery extends Database
         $this->Errors();
     }
 
-    function delete($database, $table, $id)
+    function delete($database, $table, $id, $conditions='')
     {
         $query =  "DELETE FROM $database.$table WHERE id=$id";
         mysqli_query($this->connection, $query);
         $this->Errors();
     }
-    function update($database, $table, $column, $values, $id)
+    function update($database, $table, $column, $values, $id, $conditions='')
     {
-        $query =  "UPDATE $database.$table SET $column=$values WHERE id=$id";
+        $query =  "UPDATE $database.$table SET $column=$values $conditions";
         mysqli_query($this->connection, $query);
         $this->Errors();
     }
