@@ -6,10 +6,17 @@ class Database
   private $password = '';
   protected  $connection;
 
-  function __construct()
+  function __construct($host = '', $user = '', $password = '')
   {
-
-    $this->connection = mysqli_connect($this->host, $this->user, $this->password);
+    if ($host != '' && $user != '') {
+      $this->host = $host;
+      $this->user = $user;
+      $this->password = $password;
+      $this->connection = mysqli_connect($this->host, $this->user, $this->password);
+    } else {
+      $this->connection = mysqli_connect($this->host, $this->user, $this->password);
+    }
+     mysqli_set_charset($this->connection , 'utf8mb4' );
     if (mysqli_connect_errno()) {
       echo '<script>alert("Error in the Database Conncetion!");</script>';
     }
